@@ -30,6 +30,7 @@ for date_time in data["list"]:
         weather_today_back_time = date_time["weather"][0]["main"]
 
 # もし晴れでなければGoogleHomeを喋らせるNodeJSを実行
-# TODO have to change command
+js_file = inifile.get("googlehomenotifier", "js_file")
+command = "node " + js_file
 if weather_today_back_time != "Clear":
-    os.system("ls")
+    os.system(command)
