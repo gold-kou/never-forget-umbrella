@@ -2,10 +2,16 @@ import configparser
 import datetime
 import requests
 import os
+import logging
+import logging.config
 
 # コンフィグファイル読み込み
 inifile = configparser.ConfigParser()
 inifile.read("config.ini")
+
+# ログコンフィグファイル読み込み
+logging.config.fileConfig("logging.conf")
+logger = logging.getLogger("root")
 
 # 本日の日付を取得
 today = str(datetime.date.today())
@@ -28,6 +34,7 @@ weather_today_back_time = ""
 for date_time in data["list"]:
     if date_time["dt_txt"].startswith(today) and date_time["dt_txt"].endswith(back_time):
         weather_today_back_time = date_time["weather"][0]["main"]
+        logging.info("The weather of time to go home: " + weather_today_back_time)
 
 # もし晴れでなければGoogleHomeを喋らせるNodeJSを実行
 js_file = inifile.get("googlehomenotifier", "js_file")
