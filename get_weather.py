@@ -34,7 +34,7 @@ weather_today_back_time = ""
 for date_time in data["list"]:
     if date_time["dt_txt"].startswith(today) and date_time["dt_txt"].endswith(back_time):
         weather_today_back_time = date_time["weather"][0]["main"]
-        logging.debug("The weather of time to go home: " + weather_today_back_time)
+        logging.info("The weather of time to go home: " + weather_today_back_time)
 
 # もし晴れでなければGoogleHomeを喋らせるNodeJSを実行
 js_file = inifile.get("googlehomenotifier", "js_file")
