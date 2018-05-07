@@ -4,7 +4,7 @@
 never-forget-umbrellaを使えば、濡れて帰ることも、突発的にビニール傘で出費することも、雨が止むまで無駄な残業をする必要もなくなります。なぜならば、GoogleのAIスピーカーが出勤前に傘を持っていく必要があるかどうかを自発的に喋って教えてくれるからです。
 
 ## Product Movie
-[完成物の動画]()をYouTubeに投稿しました。
+[完成物の動画](https://www.youtube.com/watch?v=UumwTBwXvbU)をYouTubeに投稿しました。
 
 ## Algorithm OverView
 1. cronで[OpenWeatherMap](https://openweathermap.org/)のREST-APIを利用して指定都市の天気情報取得
@@ -81,16 +81,16 @@ $ crontab -e
 00 8 * * 1-5 $HOME/.pyenv/shims/python <your github directory>/never-forget-umbrella/weather.py
 ```
 
-### その他
-#### /var/log/umbrella.logへの書き込みエラーが発生する
+## その他
+### /var/log/umbrella.logへの書き込みエラーが発生する
 権限の問題の可能性があります。権限設定を適切に設定するか、cron実行ユーザの書き込みアクセス可能な適当なディレクトリにログを書き込むようにlogging.confのhandler_fileHandlerセクションのargsの値を書き換えてください。
 
-#### コンフィグ関連でKeyErrorが発生する
+### コンフィグ関連でKeyErrorが発生する
 weather.pyのコンフィグファイル(config.iniとlogging.conf)読み込みのパスを自身の環境に応じて絶対パスで指定してください。
 
-#### WARNINGログに関して
+### WARNINGログに関して
 homebridgeでWARNINGログが出力されますが、以下の通り問題ないです。
 https://github.com/nfarina/homebridge/blob/master/README.md#errors-on-startup
 
-#### GUIは無いのか？
+### GUIは無いのか？
 現状はGUIを実装しておらず、設定はコンフィグからのみとなっております。
